@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# dependencieshttps://www.figma.com/file/nNx8ziq3wumP5dCyRllCyn/App-with-backend-in-C-lang?type=design&node-id=1-2&mode=design&t=ZbMNehf5EhuspUFI-0
 /node_modules
 /.pnp
 .pnp.js
