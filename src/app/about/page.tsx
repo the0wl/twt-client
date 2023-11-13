@@ -21,11 +21,10 @@ export default function About() {
   })
 
   const host = process.env.NEXT_PUBLIC_API_HOST ?? ""
-  const port = process.env.NEXT_PUBLIC_API_PORT ?? ""
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${host}:${port}/about`, {
+      const response = await fetch(`${host}/about`, {
         method: 'GET',
       })
 

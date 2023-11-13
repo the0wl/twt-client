@@ -42,7 +42,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const isAuthenticated = !!user
   const host = process.env.NEXT_PUBLIC_API_HOST ?? ""
-  const port = process.env.NEXT_PUBLIC_API_PORT ?? ""
 
   useEffect(() => {
     const { 'twt.access_token': token } = parseCookies()
@@ -56,7 +55,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const myHeaders = new Headers()
         myHeaders.append('access_token', accessToken ?? '')
 
-        const response = await fetch(`${host}:${port}/user/recover`, {
+        const response = await fetch(`${host}/user/recover`, {
           method: 'GET',
           headers: myHeaders,
         })
@@ -84,7 +83,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setLoading(true)
 
     try {
-      const response = await fetch(`${host}:${port}/user/login`, {
+      const response = await fetch(`${host}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -118,7 +117,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function register({ name, username, password }: RegisterData) {
     setLoading(true)
     try {
-      const response = await fetch(`${host}:${port}/user/register`, {
+      const response = await fetch(`${host}/user/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

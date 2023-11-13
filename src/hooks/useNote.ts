@@ -28,7 +28,6 @@ type GetNoteDataType = {
 
 export const useNote = () => {
   const host = process.env.NEXT_PUBLIC_API_HOST ?? ""
-  const port = process.env.NEXT_PUBLIC_API_PORT ?? ""
 
   const [isLoading, setLoading] = useState(true);
   const [note, setNote] = useState<Note | null>(null)
@@ -42,7 +41,7 @@ export const useNote = () => {
       myHeaders.append('access_token', accessToken ?? '')
       myHeaders.append('user_id', userId ?? '')
 
-      const response = await fetch(`${host}:${port}/note/read`, {
+      const response = await fetch(`${host}/note/read`, {
         method: 'GET',
         headers: myHeaders,
       })
@@ -65,7 +64,7 @@ export const useNote = () => {
       myHeaders.append('access_token', accessToken ?? '')
       myHeaders.append('user_id', userId ?? '')
 
-      const response = await fetch(`${host}:${port}/note/${id}`, {
+      const response = await fetch(`${host}/note/${id}`, {
         method: 'GET',
         headers: myHeaders,
       })
@@ -84,7 +83,7 @@ export const useNote = () => {
     setLoading(true)
 
     try {
-      const response = await fetch(`${host}:${port}/note/create`, {
+      const response = await fetch(`${host}/note/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -117,7 +116,7 @@ export const useNote = () => {
       myHeaders.append('title', title ?? '')
       myHeaders.append('content', content ?? '')
 
-      const response = await fetch(`${host}:${port}/note/${id}`, {
+      const response = await fetch(`${host}/note/${id}`, {
         method: 'PUT',
         headers: myHeaders,
       })
@@ -140,7 +139,7 @@ export const useNote = () => {
       myHeaders.append('access_token', accessToken ?? '')
       myHeaders.append('user_id', userId ?? '')
       
-      const response = await fetch(`${host}:${port}/note/${id}`, {
+      const response = await fetch(`${host}/note/${id}`, {
         method: 'DELETE',
         headers: myHeaders,
       })
